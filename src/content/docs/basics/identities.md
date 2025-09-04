@@ -25,15 +25,15 @@ The fundamental component of the system is the **identity claim**. This is a str
 A claim record consists of three primary fields:
 
   * `$type`: The AT Protocol record type, fixed to [`me.atpub.identity.claim`](/lexicons/identity-claim/).
-  * `platform`: A string identifying the external service or protocol (e.g., `github`, `dns`, `nostr`).
-  * `identifier`: The specific identifier on the target platform, such as a username, domain name, or public key.
+  * `service`: A string identifying the external service or protocol (e.g., `github`, `dns`, `nostr`).
+  * `identifier`: The specific identifier on the target service, such as a username, domain name, or public key.
 
 Below is an example of an **unverified claim**, which is a public assertion without an associated proof.
 
 ```json
 {
   "$type": "me.atpub.identity.claim",
-  "platform": "github",
+  "service": "github",
   "identifier": "octocat",
   "createdAt": "2025-09-04T00:00:00Z"
 }
@@ -52,7 +52,7 @@ This proof instructs a client to verify a `TXT` record associated with the `exam
 ```json
 {
   "$type": "me.atpub.identity.claim",
-  "platform": "dns",
+  "service": "dns",
   "identifier": "example.org",
   "createdAt": "2025-09-04T00:00:00Z",
   "proofs": [
@@ -70,7 +70,7 @@ This proof utilizes a signed Nostr note, referenced by an `nevent` code. A clien
 ```json
 {
   "$type": "me.atpub.identity.claim",
-  "platform": "nostr",
+  "service": "nostr",
   "identifier": "npub1k23nutfrjhts...",
   "createdAt": "2025-09-04T00:00:00Z",
   "proofs": [
@@ -88,11 +88,11 @@ This proof utilizes a signed Nostr note, referenced by an `nevent` code. A clien
 
 The verification workflow in ATPub is designed to operate without a central authority and involves three distinct steps.
 
-1.  **Claim and Prove (User):** The user first creates and stores a `me.atpub.identity.claim` record in their PDS. Subsequently, the user establishes a public backlink to their DID on the target platform (e.g., in a profile bio, a DNS TXT record, or a signed cryptographic message).
+1.  **Claim and Prove (User):** The user first creates and stores a `me.atpub.identity.claim` record in their PDS. Subsequently, the user establishes a public backlink to their DID on the target service (e.g., in a profile bio, a DNS TXT record, or a signed cryptographic message).
 
 2.  **Fetch and Check (Client Application):** A third-party application initiates verification by fetching the claim from the user's PDS and then checking the proof at the external service.
 
-3.  **Compare and Trust (Client Application):** The application compares the data retrieved from the external platform with the information in the claim. If the proof is validated, the application can consider the identity verified. Each application is responsible for implementing its own trust model.
+3.  **Compare and Trust (Client Application):** The application compares the data retrieved from the external service with the information in the claim. If the proof is validated, the application can consider the identity verified. Each application is responsible for implementing its own trust model.
 
 The diagram below illustrates the verification flow from the perspective of a client application:
 
