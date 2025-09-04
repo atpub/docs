@@ -25,9 +25,9 @@ The mutual assertion is achieved using two distinct lexicon types. A "team" is a
 
 ### The Member's Claim
 
-A user declares their affiliation with a team by creating a [`me.atpub.team.member`](https://www.google.com/search?q=/lexicons/me.atpub.team.member) record.
+A user declares their affiliation with a team by creating a [`me.atpub.team.member`](/lexicons/team-member) record.
 
-  * **Purpose:** A user asserts, "I am a member of this team."
+  * **Purpose:** A user asserts, "I am a member of this team".
   * **Structure:**
       * `team`: The DID of the team account.
 
@@ -43,9 +43,9 @@ A user declares their affiliation with a team by creating a [`me.atpub.team.memb
 
 ### The Team's Claim
 
-A team acknowledges a user as a member by creating a [`me.atpub.team.membership`](https://www.google.com/search?q=/lexicons/me.atpub.team.membership) record.
+A team acknowledges a user as a member by creating a [`me.atpub.team.membership`](/lexicons/team-membership) record.
 
-  * **Purpose:** A team asserts, "This user is a member of our team."
+  * **Purpose:** A team asserts, "This user is a member of our team".
   * **Structure:**
       * `member`: The DID of the user.
 
