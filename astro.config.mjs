@@ -7,7 +7,7 @@ export default defineConfig({
 	site: "https://docs.atpub.me",
 	integrations: [
 		starlight({
-			title: 'ATPub v1',
+			title: 'ATpub v1',
 			social: [
 				{ icon: 'github', label: 'GitHub', href: 'https://github.com/atpub' },
 				//{ icon: 'github', label: 'Bluesky', href: 'https://bsky.app/profile/atpub.me' }
@@ -23,12 +23,13 @@ export default defineConfig({
 					items: [
 						{ label: "Identities", slug: "basics/identities" },
 						{ label: "Teams", slug: "basics/teams" },
+						{ label: "Services", slug: "basics/services" },
 					]
 				},
 				{
 					label: 'Lexicons',
 					items: [
-						{ label: "me.atpub.indentity.claim", slug: 'lexicons/identity-claim' },
+						{ label: "me.atpub.identity.claim", slug: 'lexicons/identity-claim' },
 						{ label: "me.atpub.team.member", slug: 'lexicons/team-member' },
 						{ label: "me.atpub.team.membership", slug: 'lexicons/team-membership' },						
 					],
